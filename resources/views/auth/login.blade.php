@@ -39,7 +39,7 @@ password= ganesha>
 								<p>Email : admin@gmail.com</p>
 								<p>Password : ganesha</p>
 							</div>
-							<form class="form-auth-small" action="/postlogin" method="POST">
+							<form class="form-auth-small" action="{{ route('login.post') }}" method="POST">
 								{{csrf_field()}}
 								<div class="form-group">
 									<label for="signin-email" class="control-label sr-only">Email</label>

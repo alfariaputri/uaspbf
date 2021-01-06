@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/login','AuthController@login')->name('login');
-Route::post('/postlogin','AuthController@postlogin');
+Route::post('/postlogin','AuthController@postlogin')->name('login.post');
 Route::post('/logout','AuthController@logout')->name('logout');
 Route::get('/ajax/get_telat/{id}/{tanggal_kembali}','Ajax@get_telat');
 
