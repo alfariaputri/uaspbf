@@ -64,7 +64,8 @@
 		$('#tanggal_kembali').change(function() {
 			let id = $('#id').val();
 			let tanggal_kembali = $(this).val();
-			$.get(`/ajax/get_telat/${id}/${tanggal_kembali}`, function(data) {
+			// $.get(`/ajax/get_telat/${id}/${tanggal_kembali}`, function(data) {
+			$.get(`/182410101004/uas/public/ajax/get_telat/${id}/${tanggal_kembali}`, function(data) {
 				const objek = JSON.parse(data);
 				$('#telat').val(objek.telat);
 				harga_sewa = parseInt(objek.harga_sewa);
