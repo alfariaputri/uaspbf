@@ -90,7 +90,7 @@
 					</div> --}}
 					<div class="form-group">
 						<label for="exampleInputEmail1" class="form-label">Durasi</label>
-						<input name="durasi" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="7" readonly required>
+						<input name="durasi" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
 					</div>
 					<div class="form-group">
 						<label for="exampleFormControlSelect1">Jaminan</label>

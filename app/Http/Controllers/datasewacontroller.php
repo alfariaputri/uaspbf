@@ -25,7 +25,7 @@ class datasewacontroller extends Controller
             'id_user' => $Request->id_user,
             'id_mobil' => $Request->id_mobil,
             'tanggal_sewa' => $Request->tanggal_sewa,
-            'tanggal_kembali' => $tanggal->addDays(7),
+            'tanggal_kembali' => $tanggal->addDays($Request->durasi),
             'durasi' => $Request->durasi,
             'jaminan' => $Request->jaminan,
         ]);
@@ -48,7 +48,7 @@ class datasewacontroller extends Controller
             'id_user' => $Request->id_user,
             'id_mobil' => $Request->id_mobil,
             'tanggal_sewa' => $Request->tanggal_sewa,
-            'tanggal_kembali' => $tanggal->addDays(7),
+            'tanggal_kembali' => $tanggal->addDays($Request->durasi),
             'durasi' => $Request->durasi,
             'jaminan' => $Request->jaminan,
         ]);
