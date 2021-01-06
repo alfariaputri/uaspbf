@@ -61,9 +61,25 @@
 <script>
 	$(document).ready(function() {
 		var harga_sewa = '';
+		var id = $('#id').val();
+		let tanggal_kembali = $('#tanggal_kembali').val();
+		$.get(`/182410101004/uas/public/ajax/get_telat/${id}/${tanggal_kembali}`, function(data) {
+				const objek = JSON.parse(data);
+				$('#telat').val(objek.telat);
+				harga_sewa = parseInt(objek.harga_sewa);
+			});
+		$('#id').change(function() {
+			// $.get(`/ajax/get_telat/${id}/${tanggal_kembali}`, function(data) {
+			id = $(this).val();
+			$.get(`/182410101004/uas/public/ajax/get_telat/${id}/${tanggal_kembali}`, function(data) {
+				const objek = JSON.parse(data);
+				$('#telat').val(objek.telat);
+				harga_sewa = parseInt(objek.harga_sewa);
+				$('#denda').val('');
+				$('#total').val('');
+			});
+		});
 		$('#tanggal_kembali').change(function() {
-			let id = $('#id').val();
-			let tanggal_kembali = $(this).val();
 			// $.get(`/ajax/get_telat/${id}/${tanggal_kembali}`, function(data) {
 			$.get(`/182410101004/uas/public/ajax/get_telat/${id}/${tanggal_kembali}`, function(data) {
 				const objek = JSON.parse(data);
@@ -78,8 +94,37 @@
 			let telat = $('#telat').val();
 			let total = parseInt(denda) * parseInt(telat);
 			let total_bayar = parseInt(total) + parseInt(harga_sewa);
+			console.log(harga_sewa);
 			$('#total').val(total_bayar);
 		});
 	});
+	// $(document).ready(function() {
+	// 	var harga_sewa = '';
+	// 	let id = $('#id').val();
+	// 	let tanggal_kembali = $('#tanggal_kembali').val();
+	// 	$.get(`/ajax/get_telat/${id}/${tanggal_kembali}`, function(data) {
+	// 			const objek = JSON.parse(data);
+	// 			$('#telat').val(objek.telat);
+	// 			harga_sewa = parseInt(objek.harga_sewa);
+	// 		});
+	// 	$('#tanggal_kembali').change(function() {
+	// 		// $.get(`/ajax/get_telat/${id}/${tanggal_kembali}`, function(data) {
+	// 		$.get(`/ajax/get_telat/${id}/${tanggal_kembali}`, function(data) {
+	// 			const objek = JSON.parse(data);
+	// 			$('#telat').val(objek.telat);
+	// 			harga_sewa = parseInt(objek.harga_sewa);
+	// 			$('#denda').val('');
+	// 			$('#total').val('');
+	// 		});
+	// 	});
+	// 	$('#denda').keyup(function() {
+	// 		let denda = $(this).val();
+	// 		let telat = $('#telat').val();
+	// 		let total = parseInt(denda) * parseInt(telat);
+	// 		let total_bayar = parseInt(total) + parseInt(harga_sewa);
+	// 		console.log(harga_sewa);
+	// 		$('#total').val(total_bayar);
+	// 	});
+	// });
 </script>
 @stop
