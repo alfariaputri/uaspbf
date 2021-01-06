@@ -15,7 +15,7 @@
 								{{csrf_field()}}
 								<div class="form-group">
 									<label for="exampleFormControlSelect1">ID Sewa</label>
-									<select name="id_sewa" class="form-control" id="exampleFormControllSelect1">
+									<select name="id_sewa" class="form-control" id="id" id="exampleFormControllSelect1">
 										@foreach ($data_sewa as $data)
 										<option value="{{ $data->id }}" @if($data_kembali->id_sewa == $data->id)selected @endif> {{$data->id}} - {{ $data->nama }}</option>
 										@endforeach
@@ -36,7 +36,7 @@
 									<input name="denda" type="text" id="denda" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Rp." value="{{ $data_kembali->denda }}">
 								</div>
 								<div class="form-group">
-									<label for="exampleInputEmail1" class="form-label">Total Bayar</label>
+                                    <label for="exampleInputEmail1" class="form-label">Total Bayar</label>
 									<input name="total_bayar" id="total" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Rp." value="{{ $data_kembali->total_bayar }}" readonly>
 								</div>
 								<div class="form-group">
@@ -64,7 +64,7 @@
 		$('#tanggal_kembali').change(function() {
 			let id = $('#id').val();
 			let tanggal_kembali = $(this).val();
-			$.get(`ajax/get_telat/${id}/${tanggal_kembali}`, function(data) {
+			$.get(`/ajax/get_telat/${id}/${tanggal_kembali}`, function(data) {
 				const objek = JSON.parse(data);
 				$('#telat').val(objek.telat);
 				harga_sewa = parseInt(objek.harga_sewa);
